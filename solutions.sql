@@ -108,5 +108,31 @@ limit 10;
 -- Query 16
 -- In the loan table, retrieve the number of loans issued for each day, before (excl) 930907, ordered by date in descending order.
 
+select `date`,count(*) as number_of_loans from loan
+where `date` < 930907
+group by `date`
+order by `date` desc
+;
 
-select * from loan;
+-- Query 17
+-- In the loan table, for each day in December 1997, count the number of loans issued for each unique loan duration, ordered by date and duration, both in ascending order. You can ignore days without any loans in your output.
+
+select `date`,duration, count(loan_id) as total from loan
+where `date` between '971201' and '971231'
+group by `date`,duration
+;
+
+-- Query 18
+-- In the trans table, for account_id 396, sum the amount of transactions for each type (VYDAJ = Outgoing, PRIJEM = Incoming). 
+-- Your output should have the account_id, the type and the sum of amount, named as total_amount. Sort alphabetically by type.
+
+select account_id,`type`,sum(amount) as total_amount from trans
+where account_id = '396'
+group by `type`
+order by `type`
+;
+
+
+
+
+
