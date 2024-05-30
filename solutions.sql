@@ -23,8 +23,8 @@ limit 3;
 -- Consulta 4
 -- ¿Cuáles son los valores posibles para status, ordenados alfabéticamente en orden ascendente en la tabla loan?
 
-select distinct status from loan
-order by status;
+select distinct `status` from loan
+order by `status`;
 
 -- Consulta 5
 -- ¿Cuál es el loan_id del pago más alto recibido en la tabla loan?
